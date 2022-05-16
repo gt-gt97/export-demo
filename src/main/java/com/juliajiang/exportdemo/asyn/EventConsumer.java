@@ -45,7 +45,7 @@ public class EventConsumer implements ApplicationContextAware, ApplicationListen
         this.applicationContext = applicationContext;
     }
 
-    //项目启动后（此时容器中包含所有的bean）需要执行某个操作
+    //程序正常启动后进行执行，且会执行一次
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         //初始化所有的事件
