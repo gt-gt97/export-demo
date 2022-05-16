@@ -68,6 +68,7 @@ public class IDGeneratorUtil {
         String no;
         if (increment) {
             // 自增获取
+            // 报错！！！
             Long temp = getIdGeneratorUtil().redisTemplate.opsForValue().increment(key, 1);
             if (temp == 1) {
                 // 过期时间
