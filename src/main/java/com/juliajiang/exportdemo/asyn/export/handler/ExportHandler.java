@@ -32,6 +32,7 @@ public class ExportHandler implements EventHandler, ApplicationContextAware {
     public void doHandle(EventModel model) {
         String code = (String) model.getExt("exportCode");
         ExportTemplate exportTemplate = map.get(code);
+        System.out.println("doHandle");
         if(exportTemplate == null){
             log.info("Does not support this type of export");
             return;

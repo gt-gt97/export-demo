@@ -85,6 +85,7 @@ public class EventConsumer implements ApplicationContextAware, ApplicationListen
                             }
                             log.info("queueName:{},pop eventModel:{}", key, event);
                             EventModel model = GsonUtil.toBean(event, EventModel.class);
+                            System.out.println("消费者："+model.toString());
                             if(config.containsKey(model.getType())){
                                 for (EventHandler handler : config.get(model.getType())) {
                                     handler.doHandle(model);

@@ -32,13 +32,17 @@ public abstract class ExportTemplate {
 
     public final void template(EventModel model){
         try{
+            System.out.println("生成文件");
             // 1. 生成文件
             File file = generateFile(model, PAGE_SIZE);
             // 2. 上传文件服务器
+            System.out.println("上传文件服务器");
             boolean isSuccess = upload(file);
             // 3. 更新请求管理表
+            System.out.println("更新请求管理表");
             updateRequestManage(isSuccess, file);
             // 4. 发送事件完成消息
+            System.out.println("发送事件完成消息");
             sendMessage(isSuccess);
         }catch (Exception e){
             log.info("export error:{}", e.getMessage());
@@ -54,6 +58,7 @@ public abstract class ExportTemplate {
         // 导出模版名称
         String templateName = ExportEnum.getTemplateNameByCode(exportCode);
         // 导出文件名称
+        // 报错！！！
         String fileName = IDGeneratorUtil.getRedisNo("student", 6, true, false);
         Map<String, Object> writer = getWriter(templateName, fileName);
         Page page = new Page(1, PAGE_SIZE);
