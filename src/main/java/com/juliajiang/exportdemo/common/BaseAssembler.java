@@ -10,14 +10,14 @@ import java.util.List;
 
 /**
  * @author jiangfan.julia@gmail.com
- * @description 转换器
+ * @description 转换器(Do,Po,Vo转换)
  * @since 2021/2/18 3:09 下午
  */
 public class BaseAssembler {
 
     /**
      * toDTO
-     *
+     * DO转化为VO
      * @param o
      * @param vClass
      * @param <T>
@@ -32,7 +32,7 @@ public class BaseAssembler {
 
     /**
      * toDTOList
-     *
+     * 一组DO转化为一组VO
      * @param oList
      * @param vClass
      * @param <T>

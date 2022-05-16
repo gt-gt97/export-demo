@@ -24,6 +24,9 @@ import java.util.concurrent.*;
  * @author jiangfan.julia@gmail.com
  * @description 消费者
  * @since 2021/2/17 10:05 上午
+ * ApplicationContextAware:spring初始化完bean，才注入上下文。
+ * ApplicationListener是Spring事件机制的一部分，与抽象类ApplicationEvent类配合来完成ApplicationContext的事件机制。
+ *
  */
 @Slf4j
 @Component
@@ -42,7 +45,7 @@ public class EventConsumer implements ApplicationContextAware, ApplicationListen
         this.applicationContext = applicationContext;
     }
 
-
+    //项目启动后（此时容器中包含所有的bean）需要执行某个操作
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         //初始化所有的事件

@@ -31,7 +31,7 @@ public class StudentControllerTest {
         StudentReq req = new StudentReq();
         req.setName("张三");
         req.setSize(10);
-        JsonResult<IPage<StudentDTO>> query = studentController.query(req);
+        JsonResult query = studentController.export(req);
         System.out.println(query);
     }
 }

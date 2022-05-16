@@ -50,7 +50,9 @@ public class StudentController extends BaseController {
         Map<String, Object> exts = new HashMap<>();
         exts.put("query", BaseAssembler.toDTO(req, StudentDTO.class));
         exts.put("exportCode", ExportEnum.STUDENT.getCode());
-        producer.fireEvent(EventModel.builder()
+        producer.fireEvent(
+                // @Builder,初始化实例对象，实例化了一个事件模板对象。
+                EventModel.builder()
                 .type(EventType.EXPORT)
                 .exts(exts)
                 .key(QueueNameEnum.EXPORT.getCode())
